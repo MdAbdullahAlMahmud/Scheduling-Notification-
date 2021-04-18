@@ -1,10 +1,12 @@
-package com.mkrlabs.repeataingnotificationtest;
+package com.mkrlabs.repeataingnotificationtest.services;
 
 import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+
+import com.mkrlabs.repeataingnotificationtest.R;
 
 import java.util.concurrent.TimeUnit;
 
@@ -32,7 +34,7 @@ public class DeviceRestartReceiver extends BroadcastReceiver {
             //---------
 
             // As when device got restart it destroy all alarm so  we have recreate that alarm
-            Intent notificationIntent = new Intent(context,MyNotificationPublisher.class);
+            Intent notificationIntent = new Intent(context, MyNotificationPublisher.class);
             PendingIntent pendingIntent = PendingIntent.getBroadcast(context,0,notificationIntent,0);
             AlarmManager alarmManager = (AlarmManager) context.getSystemService(ALARM_SERVICE);
             long timestamp = System.currentTimeMillis();
